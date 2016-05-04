@@ -7,7 +7,20 @@ var app = express();
 // });
 
 app.get('/headers', function(request, response){
+  console.log(request.headers);
   response.send(request.headers);
+});
+
+app.get('/headers/:header_name', function(request, response){
+  var headerObj = request.headers;
+  var headerObjVal = headerObj[request.params.header_name];
+  response.send(headerObjVal);
+});
+
+app.get('/version', function(request, response){
+  var version = request.version;
+  console.log(request.version);
+  response.send(version.httpVersion);
 });
 
 app.get('/:jedi/:firstName/:lastName', function(request, response){
@@ -23,6 +36,6 @@ app.get('/:jedi/:firstName/:lastName', function(request, response){
 
 });
 
-app.listen(8080, function(){
-  console.log('App listening on port 8080!');
+app.listen(4000, function(){
+  console.log('App listening on port 4000!');
 });
