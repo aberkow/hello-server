@@ -36,6 +36,6 @@ app.get('/:jedi/:firstName/:lastName', function(request, response){
 
 });
 
-app.listen(4000, function(){
+app.listen(4000, 'localhost', function(){
   console.log('App listening on port 4000!');
 });
